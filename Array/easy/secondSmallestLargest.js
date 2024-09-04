@@ -52,8 +52,8 @@ function getElements(arr) {
             second_large = arr[i];
     }
 
-    console.log("Second smallest is " + second_small);
-    console.log("Second largest is " + second_large);
+    console.log("Second smallest is: " + second_small);
+    console.log("Second largest is: " + second_large);
 }
 
 const arr1 = [1, 2, 4, 6, 7, 5];
