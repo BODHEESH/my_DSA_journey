@@ -152,8 +152,8 @@ function getLongestSubarray(a, k) {
 }
 
 let aa = [2, 3, 5, 1, 9];
-let k = 10;
-let len = getLongestSubaarray(a, k);
+let kk = 10;
+let len = getLongestSubaarray(a, kk);
 console.log("The length of the longest subarray is:", len);
 
 
