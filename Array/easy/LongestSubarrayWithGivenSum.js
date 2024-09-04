@@ -106,10 +106,10 @@ function getLongestSubarray(a, k) {
     return maxLen;
 }
 
-let a = [2, 3, 5, 1, 9];
-let k = 10;
-let len = getLongestSubarray(a, k);
-console.log("The length of the longest subarray is:", len);
+let a1 = [2, 3, 5, 1, 9];
+let k1 = 10;
+let len1 = getLongestSubarray(a1, k1);
+console.log("The length of the longest subarray is:", len1);
 
 
 /*
@@ -196,8 +196,8 @@ function longestSubarrayWithSumK(arr, k) {
 
 // Example usage:
 let arr1 = [2, 3, 5];
-let k1 = 5;
-console.log(longestSubarrayWithSumK(arr1, k1)); // Output: 2
+let size = 5;
+console.log(longestSubarrayWithSumK(arr1, size)); // Output: 2
 
 let arr2 = [2, 3, 5, 1, 9];
 let k2 = 10;
