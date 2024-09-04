@@ -25,10 +25,10 @@ function getLongestSubarray(a, k) {
     return len;
 }
 
-let a = [2, 3, 5, 1, 9];
-let k = 10;
-let len = getLongestSubarray(a, k);
-console.log("The length of the longest subarray is:", len);
+let arr = [2, 3, 5, 1, 9];
+let n = 10;
+let leng = getLongestSubarray(arr, n);
+console.log("The length of the longest subarray is:", leng);
 
 // Time Complexity: O(N3) approx., where N = size of the array.
 //     Reason: We are using three nested loops, each running approximately N times.
