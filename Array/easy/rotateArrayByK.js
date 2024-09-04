@@ -7,9 +7,7 @@
 
 // For Rotating the Elements to right
 // Step 1: Copy the last k elements into the temp array.
-
 // Step 2: Shift n-k elements from the beginning by k position to the right
-
 // Step 3: Copy the elements into the main array from the temp array.
 
 // Code:
@@ -43,9 +41,7 @@ console.log(arr.join(" "));
 
 // For Rotating the Elements to left
 // Step 1: Copy the first k elements into the temp array.
-
 // Step 2: Shift n-k elements from last by k position to the left
-
 // Step 3: Copy the elements into the main array from the temp array.
 
 function rotateToLeft(arr, k) {
@@ -80,11 +76,8 @@ console.log(arr1.join(" "));
 
 // For Rotating Elements to right
 // Step 1: Reverse the last k elements of the array
-
 // Step 2: Reverse the first n - k elements of the array.
-
 //     Step 3: Reverse the whole array.
-
 // For Eg, arr[] = { 1, 2, 3, 4, 5, 6, 7}, k = 2
 
 // Function to reverse the array from start to end
@@ -125,11 +118,8 @@ console.log(arr2.join(" "));
 
 // For Rotating Elements to left
 // Step 1: Reverse the first k elements of the array
-
 // Step 2: Reverse the last n - k elements of the array.
-
 //     Step 3: Reverse the whole array.
-
 // For Eg, arr[] = { 1, 2, 3, 4, 5, 6, 7}, k = 2
 
 // Function to reverse the array from start to end
