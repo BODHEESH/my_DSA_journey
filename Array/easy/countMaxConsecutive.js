@@ -28,3 +28,29 @@ let prices2 = [1, 0, 1, 1, 0, 1];
 console.log(findMaxConsecutiveOnes(prices2)); // Output: 2
 
 
+/* ----------------------------- class solution ----------------------------- */
+
+class Solution {
+    findMaxConsecutiveOnes(nums) {
+        let cnt = 0;
+        let maxi = 0;
+
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] === 1) {
+                cnt++;
+            } else {
+                cnt = 0;
+            }
+            maxi = Math.max(maxi, cnt);
+        }
+
+        return maxi;
+    }
+}
+
+if (require.main === module) {
+    const nums = [1, 1, 0, 1, 1, 1];
+    const obj = new Solution();
+    const ans = obj.findMaxConsecutiveOnes(nums);
+    console.log("The maximum consecutive 1's are", ans);
+}
