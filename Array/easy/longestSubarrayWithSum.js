@@ -140,3 +140,46 @@ Reason: For example, if we are using an unordered_map data structure in C++ the 
 Space Complexity: O(N) as we are using a map data structure.
 */
 
+/* -------------------------------------------------------------------------- */
+/*                     Optimal Approach(Using 2 pointers):                    */
+/* -------------------------------------------------------------------------- */
+
+function getLongestSubarray(a, k) {
+    let n = a.length; // size of the array
+
+    let left = 0, right = 0; // 2 pointers
+    let sum = a[0];
+    let maxLen = 0;
+    while (right < n) {
+        // if sum > k, reduce the subarray from left
+        // until sum becomes less or equal to k
+        while (left <= right && sum > k) {
+            sum -= a[left];
+            left++;
+        }
+
+        // if sum = k, update the maxLen i.e. answer
+        if (sum === k) {
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+
+        // Move forward the right pointer
+        right++;
+        if (right < n) sum += a[right];
+    }
+
+    return maxLen;
+}
+
+function main1() {
+let a = [2, 3, 5, 1, 9];
+let k = 10;
+let len = getLongestSubarray(a, k);
+console.log("The length of the longest subarray is:", len);
+}
+
+main1()
+
+// Space Complexity: O(1) as we are not using any extra space.
+// Space Complexity: O(1) as we are not using any extra space.
+
