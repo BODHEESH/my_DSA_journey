@@ -119,6 +119,8 @@ function main() {
 
 main();      
 
+// Time Complexity: O(N * logM) + O(M), where M = size of the map i.e.M = (N / 2) + 1. N = size of the array.
+// Space Complexity: O(M) as we are using a map data structure.Here M = size of the map i.e.M = (N / 2) + 1.
 
 
 
