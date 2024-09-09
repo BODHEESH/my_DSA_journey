@@ -1,3 +1,4 @@
+
 /* -------------------------------------------------------------------------- */
 /*           Two Sum: Check if a pair with given sum exists in Array          */
 /* -------------------------------------------------------------------------- */
@@ -7,12 +8,12 @@
 // 2nd variant: Return indices of the two numbers such that their sum is equal to the target.Otherwise, we will return {- 1, -1}.
 // Note: You are not allowed to use the same element twice.Example: If the target is equal to 6 and num[1] = 3, then nums[1] + nums[1] = target is not a solution
 
-/* ------------------------- Brute - force approach ------------------------- */
-function twoSum(n, arr, target) {
+/* ------------------------- Brute-force approach Variant 1 ------------------------- */
+function twoSumBruteForce1(n1, arr1, target1) {
     // Two nested loops to check all pairs
-    for (let i = 0; i < n; i++) {
-        for (let j = i + 1; j < n; j++) {
-            if (arr[i] + arr[j] === target) {
+    for (let i = 0; i < n1; i++) {
+        for (let j = i + 1; j < n1; j++) {
+            if (arr1[i] + arr1[j] === target1) {
                 return "YES";
             }
         }
@@ -20,117 +21,108 @@ function twoSum(n, arr, target) {
     return "NO";
 }
 
-let n = 5;
-let arr = [2, 6, 5, 8, 11];
-let target = 14;
-let ans = twoSum(n, arr, target);
-console.log("This is the answer for variant 1:", ans);
+let n1 = 5;
+let arr1 = [2, 6, 5, 8, 11];
+let target1 = 14;
+let ans1 = twoSumBruteForce1(n1, arr1, target1);
+console.log("This is the answer for brute-force variant 1:", ans1);
 
-/* ----------------------------- code variant 2 ----------------------------- */
-function twoSum(n, arr, target) {
-    let ans = [];
+/* ----------------------------- Brute-force approach Variant 2 ----------------------------- */
+function twoSumBruteForce2(n2, arr2, target2) {
+    let ans2 = [];
     // Two nested loops to check all pairs
-    for (let i = 0; i < n; i++) {
-        for (let j = i + 1; j < n; j++) {
-            if (arr[i] + arr[j] === target) {
-                ans.push(i, j); // Add indices to the result
-                return ans; // Return early when a match is found
+    for (let i = 0; i < n2; i++) {
+        for (let j = i + 1; j < n2; j++) {
+            if (arr2[i] + arr2[j] === target2) {
+                ans2.push(i, j); // Add indices to the result
+                return ans2; // Return early when a match is found
             }
         }
     }
     return [-1, -1]; // If no match is found, return [-1, -1]
 }
-function twoSumOne(){
-    let n = 5;
-    let arr = [2, 6, 5, 8, 11];
-    let target = 14;
-    let ans = twoSum(n, arr, target);
-    console.log(`This is the answer for variant 2: [${ans[0]}, ${ans[1]}]`);
-}
-twoSumOne()
 
+let n2 = 5;
+let arr2 = [2, 6, 5, 8, 11];
+let target2 = 14;
+let ans2 = twoSumBruteForce2(n2, arr2, target2);
+console.log(`This is the answer for brute-force variant 2: [${ans2[0]}, ${ans2[1]}]`);
 
 /* -------------------------------------------------------------------------- */
-/*                       Better Approach(using Hashing):                      */
+/*                       Better Approach (using Hashing):                      */
 /* -------------------------------------------------------------------------- */
 
-/* --------------------------- Code for Variant 1: -------------------------- */
-function twoSum(n, arr, target) {
-    let map = new Map(); // Create a map to store the elements and their indices
+/* --------------------------- Code for Hashing Variant 1 -------------------------- */
+function twoSumHashing1(n3, arr3, target3) {
+    let map3 = new Map(); // Create a map to store the elements and their indices
 
-    for (let i = 0; i < n; i++) {
-        let num = arr[i];
-        let complement = target - num; // Calculate the required complement
+    for (let i = 0; i < n3; i++) {
+        let num = arr3[i];
+        let complement = target3 - num; // Calculate the required complement
 
         // Check if the complement exists in the map
-        if (map.has(complement)) {
+        if (map3.has(complement)) {
             return "YES"; // If found, return "YES"
         }
 
         // Store the current element in the map
-        map.set(num, i);
+        map3.set(num, i);
     }
 
     return "NO"; // If no pair is found, return "NO"
 }
 
-function twoSumTwo() {
-    let n = 5;
-    let arr = [2, 6, 5, 8, 11];
-    let target = 14;
-    let ans = twoSum(n, arr, target);
-    console.log("This is the answer for variant 1: " + ans);
-}
-twoSumTwo();
+let n3 = 5;
+let arr3 = [2, 6, 5, 8, 11];
+let target3 = 14;
+let ans3 = twoSumHashing1(n3, arr3, target3);
+console.log("This is the answer for hashing variant 1: " + ans3);
 
-/* --------------------------- Code for Variant 2: -------------------------- */
-function twoSum(n, arr, target) {
-    let ans = [-1, -1]; // Default answer if no pair is found
-    let map = new Map(); // Hash map to store the value and its index
+/* --------------------------- Code for Hashing Variant 2 -------------------------- */
+function twoSumHashing2(n4, arr4, target4) {
+    let ans4 = [-1, -1]; // Default answer if no pair is found
+    let map4 = new Map(); // Hash map to store the value and its index
 
-    for (let i = 0; i < n; i++) {
-        let num = arr[i];
-        let moreNeeded = target - num; // Calculate the required complement
+    for (let i = 0; i < n4; i++) {
+        let num = arr4[i];
+        let moreNeeded = target4 - num; // Calculate the required complement
 
         // Check if the complement exists in the map
-        if (map.has(moreNeeded)) {
-            ans[0] = map.get(moreNeeded); // First index
-            ans[1] = i; // Current index
-            return ans; // Return the result immediately if pair found
+        if (map4.has(moreNeeded)) {
+            ans4[0] = map4.get(moreNeeded); // First index
+            ans4[1] = i; // Current index
+            return ans4; // Return the result immediately if pair found
         }
 
         // Store the current element's index in the map
-        map.set(num, i);
+        map4.set(num, i);
     }
 
-    return ans; // Return [-1, -1] if no pair is found
+    return ans4; // Return [-1, -1] if no pair is found
 }
 
-function twoSumThree() {
-    let n = 5;
-    let arr = [2, 6, 5, 8, 11];
-    let target = 14;
-    let ans = twoSum(n, arr, target);
-    console.log(`This is the answer for variant 2: [${ans[0]}, ${ans[1]}]`);
-}
-twoSumThree();
+let n4 = 5;
+let arr4 = [2, 6, 5, 8, 11];
+let target4 = 14;
+let ans4 = twoSumHashing2(n4, arr4, target4);
+console.log(`This is the answer for hashing variant 2: [${ans4[0]}, ${ans4[1]}]`);
 
 // Time Complexity: O(N), where N = size of the array.
 // Space Complexity: O(N) as we use the map data structure.
 
 /* -------------------------------------------------------------------------- */
-/*                  Optimized Approach(using two - pointer):                  */
+/*                  Optimized Approach(using two-pointer):                   */
 /* -------------------------------------------------------------------------- */
 
-function twoSum(n, arr, target) {
-    arr.sort((a, b) => a - b); // Sorting the array
-    let left = 0, right = n - 1;
+function twoSumTwoPointer(n5, arr5, target5) {
+    arr5.sort((a, b) => a - b); // Sorting the array
+    let left = 0, right = n5 - 1;
 
     while (left < right) {
-        let sum = arr[left] + arr[right];
-        if (sum === target) {
+        let sum = arr5[left] + arr5[right];
+        if (sum === target5) {
             return "YES";
-        } else if (sum < target) {
+        } else if (sum < target5) {
             left++;
         } else {
             right--;
@@ -139,11 +131,11 @@ function twoSum(n, arr, target) {
     return "NO";
 }
 
-const n = 5;
-const arr = [2, 6, 5, 8, 11];
-const target = 14;
-const ans = twoSum(n, arr, target);
-console.log(`This is the answer for variant 1: ${ans}`);
+let n5 = 5;
+let arr5 = [2, 6, 5, 8, 11];
+let target5 = 14;
+let ans5 = twoSumTwoPointer(n5, arr5, target5);
+console.log(`This is the answer for two-pointer variant 1: ${ans5}`);
 
 
 // Time Complexity: O(N) + O(N * logN), where N = size of the array.
@@ -170,12 +162,13 @@ function twoSum(n, arr, target) {
     return "NO";
 }
 
-const n = 5;
-const arr = [2, 6, 5, 8, 11];
-const target = 14;
-const ans = twoSum(n, arr, target);
-console.log("This is the answer for variant 1:", ans);
+const n6 = 5;
+const arr6 = [2, 6, 5, 8, 11];
+const target6 = 14;
+const ans6 = twoSum(n6, arr6, target6);
+console.log("This is the answer for variant 1:", ans6);
 
 
 // Time Complexity: O(N)
 // Space Complexity: O(N)
+
