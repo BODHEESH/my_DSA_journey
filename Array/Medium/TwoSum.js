@@ -54,7 +54,7 @@ twoSumOne()
 /*                       Better Approach(using Hashing):                      */
 /* -------------------------------------------------------------------------- */
 
-// Code for Variant 1:
+/* --------------------------- Code for Variant 1: -------------------------- */
 function twoSum(n, arr, target) {
     let map = new Map(); // Create a map to store the elements and their indices
 
@@ -83,7 +83,7 @@ function twoSumTwo() {
 }
 twoSumTwo();
 
-// Code for Variant 2:
+/* --------------------------- Code for Variant 2: -------------------------- */
 function twoSum(n, arr, target) {
     let ans = [-1, -1]; // Default answer if no pair is found
     let map = new Map(); // Hash map to store the value and its index
@@ -114,3 +114,68 @@ function twoSumThree() {
     console.log(`This is the answer for variant 2: [${ans[0]}, ${ans[1]}]`);
 }
 twoSumThree();
+
+// Time Complexity: O(N), where N = size of the array.
+// Space Complexity: O(N) as we use the map data structure.
+
+/* -------------------------------------------------------------------------- */
+/*                  Optimized Approach(using two - pointer):                  */
+/* -------------------------------------------------------------------------- */
+
+function twoSum(n, arr, target) {
+    arr.sort((a, b) => a - b); // Sorting the array
+    let left = 0, right = n - 1;
+
+    while (left < right) {
+        let sum = arr[left] + arr[right];
+        if (sum === target) {
+            return "YES";
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    return "NO";
+}
+
+const n = 5;
+const arr = [2, 6, 5, 8, 11];
+const target = 14;
+const ans = twoSum(n, arr, target);
+console.log(`This is the answer for variant 1: ${ans}`);
+
+
+// Time Complexity: O(N) + O(N * logN), where N = size of the array.
+// Space Complexity: O(1) as we are not using any extra space.
+
+/* ------------------- chatgpt best variant using hashing ------------------- */
+
+function twoSum(n, arr, target) {
+    let map = new Map(); // Hash map to store values and their indices
+
+    for (let i = 0; i < n; i++) {
+        let num = arr[i];
+        let complement = target - num;
+
+        // If complement exists in the map, return "YES"
+        if (map.has(complement)) {
+            return "YES";
+        }
+
+        // Add the current number to the map
+        map.set(num, i);
+    }
+
+    return "NO";
+}
+
+const n = 5;
+const arr = [2, 6, 5, 8, 11];
+const target = 14;
+const ans = twoSum(n, arr, target);
+console.log("This is the answer for variant 1:", ans);
+
+
+// Time Complexity: O(N)
+// Space Complexity: O(N)
